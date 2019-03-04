@@ -1,3 +1,5 @@
+//CLICK TO FLIP BLOCKS FUNCTION
+
 let blocks = document.getElementsByClassName('block')
 let blockFlip = function() {
 for (let i=0; i<blocks.length; i++) {
@@ -6,13 +8,19 @@ for (let i=0; i<blocks.length; i++) {
     })
 }}
 
+//BLOCK ARRAY
+
 let blockArray = [...blocks]
 
-let randomBlocks = function() {
-    for (let i=0; i<3; i++) {
-    console.log(blockArray[Math.floor(Math.random() * blockArray.length)])
-    }
+//GET FOUR RANDOM BLOCKS
+
+let randomBlock = function() {
+    return blockArray[Math.floor(Math.random() * blockArray.length)]
 }
 
-console.log(randomBlocks())
+let random1 = randomBlock()
+let random2 = randomBlock()
+let random3 = randomBlock()
+let random4 = randomBlock()
 
+let randomBlocksArr = [random1, random2, random3, random4]
