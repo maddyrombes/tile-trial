@@ -8,19 +8,29 @@ for (let i=0; i<blocks.length; i++) {
     })
 }}
 
-//BLOCK ARRAY
+//MORE UBIQUITOUS FLIP BLOCK FUNCTION
+
+// let randomBlockFlip = function(block) {
+//     block.
+// }
+
+
+
+//GET FOUR RANDOM BLOCKS TO FLIP
 
 let blockArray = [...blocks]
-
-//GET FOUR RANDOM BLOCKS
 
 let randomBlock = function() {
     return blockArray[Math.floor(Math.random() * blockArray.length)]
 }
 
-let random1 = randomBlock()
-let random2 = randomBlock()
-let random3 = randomBlock()
-let random4 = randomBlock()
+let randomBlocksArr = []
 
-let randomBlocksArr = [random1, random2, random3, random4]
+randomBlocksArr.push(randomBlock())
+randomBlocksArr.push(randomBlock())
+randomBlocksArr.push(randomBlock())
+randomBlocksArr.push(randomBlock())
+
+for (let i=0; i<randomBlocksArr.length; i++) {
+    randomBlocksArr[i].style.backgroundColor = 'blue'
+}
