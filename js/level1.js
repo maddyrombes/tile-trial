@@ -8,11 +8,9 @@ for (let i=0; i<blocks.length; i++) {
     })
 }}
 
-
 //GET FOUR RANDOM BLOCKS TO FLIP
 
 let blockArray = [...blocks]
-
 
 let randomBlock = function() {
     return blockArray[Math.floor(Math.random() * blockArray.length)]
@@ -31,7 +29,12 @@ let random4 = randomBlock()
 
 let randomBlocksArr = [random1, random2, random3, random4]
 
-let startTime = setTimeout(function(){
+let flipReveal = setTimeout(function(){
     for (let i=0; i<randomBlocksArr.length; i++) {
         randomBlocksArr[i].style.backgroundColor = 'blue'
     }}, 500)
+
+let flipHide = setTimeout(function(){
+    for (let i=0; i<randomBlocksArr.length; i++) {
+        randomBlocksArr[i].style.backgroundColor = '#f4bc42'
+    }}, 1250)
