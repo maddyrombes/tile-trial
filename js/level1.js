@@ -18,19 +18,20 @@ let randomBlock = function() {
     return blockArray[Math.floor(Math.random() * blockArray.length)]
 }
 
-let randomBlocksArr = []
+let random1 = randomBlock()
+let index1 = blockArray.indexOf(random1)
+blockArray.splice(index1, 1)
+let random2 = randomBlock()
+let index2 = blockArray.indexOf(random2)
+blockArray.splice(index2, 1)
+let random3 = randomBlock()
+let index3 = blockArray.indexOf(random3)
+blockArray.splice(index3, 1)
+let random4 = randomBlock()
 
-randomBlocksArr.push(randomBlock())
-randomBlocksArr.push(randomBlock())
-randomBlocksArr.push(randomBlock())
-randomBlocksArr.push(randomBlock())
-
-//BUG: THIS IS ALLOWING FOR REPEATS. NEED TO FIX.
+let randomBlocksArr = [random1, random2, random3, random4]
 
 let startTime = setTimeout(function(){
     for (let i=0; i<randomBlocksArr.length; i++) {
         randomBlocksArr[i].style.backgroundColor = 'blue'
     }}, 500)
-
-
-
