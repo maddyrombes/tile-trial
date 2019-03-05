@@ -19,7 +19,7 @@ h3 {
     padding-top: 30px;
 }
 
-.block-container {
+.tile-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,7 +28,7 @@ h3 {
     margin: auto;
 }
 
-.block {
+.tile {
     width: 100px;
     height: 100px;
     background-color: #f4bc42;
