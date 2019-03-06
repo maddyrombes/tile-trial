@@ -4,11 +4,20 @@ let points = 0
 let score = document.querySelector('.score').textContent
 let winningArray = []
 let userFlipArray = []
-let reset = function() {
+let resetTiles = function() {
     for (let i=0; i<tileArray.length; i++) {
     tileArray[i].style.backgroundColor = '#f4bc42'}
     winningArray = []
     userFlipArray = []
+    flipFourRandomTiles()
+    userTileFlip()
+}
+let playGame = function() {
+    for (let i=0; i<tileArray.length; i++) {
+    tileArray[i].style.backgroundColor = '#f4bc42'}
+    winningArray = []
+    userFlipArray = []
+    score = 0
     flipFourRandomTiles()
     userTileFlip()
 }
@@ -44,15 +53,17 @@ let userTileFlip = function() {
             if (((userFlipArray[0] === winningArray[0]) ||(userFlipArray[0] === winningArray[1]) || (userFlipArray[0] === winningArray[2]) || (userFlipArray[0] === winningArray[3])) && ((userFlipArray[1] === winningArray[0]) || (userFlipArray[1] === winningArray[1]) || (userFlipArray[1] === winningArray[2]) || (userFlipArray[1] === winningArray[3])) && ((userFlipArray[2] === winningArray[0]) || (userFlipArray[2] === winningArray[1]) || (userFlipArray[2] === winningArray[2]) || (userFlipArray[2] === winningArray[3])) && ((userFlipArray[3] === winningArray[0]) || (userFlipArray[3] === winningArray[1]) || (userFlipArray[3] === winningArray[2]) || (userFlipArray[3] === winningArray[3]))) {
                 document.querySelector('.score').innerText = points += 1
                     setTimeout(() => {
-                        let keepPlaying = window.confirm('you got a point')
+                        let keepPlaying = window.confirm('nice job, you got a point!')
                         if (keepPlaying === true) {
-                            reset()
+                            resetTiles()
                         }
                     }, 500)
                 }
             else {
-                alert('you lose')
-            }}
+                setTimeout(() => {
+                alert('rats, you lose. play again?')
+                playGame()
+            }, 500)}}
 }}}
 
 flipFourRandomTiles()
@@ -75,3 +86,4 @@ userTileFlip()
 //else, restart level
 //if counter === 10, go to level 2
 //allow users to 'unflip' until they've flipped four tiles
+//ADD 3 2 1 COUNTDOWN?
