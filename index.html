@@ -7,10 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Titan+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
 <body>
-    <p class='score'>0</p><p> / 3</p>
-    <div class="tile-container">
+    <h1>TILE TRIAL</h1>
+    <h2><div id="instructions-heading">INSTRUCTIONS:</div></br> Watch for the flipping tiles.</br> After the disappear, try and click on the same ones.</br>Get ten points and move to the next level!</br>When you're ready, press Go.</h2>
+    <button id="landing-page-btn" onclick="playLevelOne()">GO! </button>
+    <div id=score>
+    <p>Score: </p></p><p class='score'>0</p><p> / 3</p>
+    </div>
+    <div class="tile-container level-1-grid">
         <div class="tile"></div>
         <div class="tile"></div>
         <div class="tile"></div>
@@ -29,9 +35,9 @@
         <div class="tile"></div>
     </div>
     <div class='footer'>
-    <h3 class='level-1'>LEVEL 1</h3>
-    <h3 class='level-2'>LEVEL 2</h3>
-    <h3 class='level-3'>LEVEL 3</h3>
+    <button class='level-1' onclick="">LEVEL 1</button>
+    <button class='level-2' onclick="playLevelTwo()">LEVEL 2</button>
+    <button class='level-3' onclick="">LEVEL 3</button>
     </div>
     <script src="script.js"></script>
 </body>

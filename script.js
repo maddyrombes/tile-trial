@@ -1,8 +1,31 @@
+const level1Grid = document.querySelector('.tile-container')
+const score = document.querySelector('#score')
+const footer = document.querySelector('.footer')
+const landingPageBtn = document.querySelector('#landing-page-btn')
+const instructions = document.querySelector('h2')
+
+
+let landingPage = function() {
+    score.style.display = 'none'
+    footer.style.display = 'none'
+    level1Grid.style.display = 'none'
+}
+
+landingPage()
+
 const tiles = document.getElementsByClassName('tile')
 const tileArray = [...tiles]
 let points = 0
 let winningArray = []
 let userFlipArray = []
+
+let playLevelOne = function() {
+
+    level1Grid.style.display = 'flex'
+    score.style.display = 'block'
+    footer.style.display = 'block'
+    landingPageBtn.style.display = 'none'
+    instructions.style.display = 'none'
 
 let flipTile = function() {
     for (let i=0; i<tileArray.length; i++) {
@@ -99,3 +122,7 @@ let userTileFlip = function() {
 
 flipFourRandomTiles()
 userTileFlip()
+
+}
+
+
