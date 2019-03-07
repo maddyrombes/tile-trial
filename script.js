@@ -54,11 +54,13 @@ let flipFourRandomTiles = function() {
     tileArray.push(winningArray[3])
 }
 
-let compareArrays = function() {
-    if (((userFlipArray[0] === winningArray[0]) ||(userFlipArray[0] === winningArray[1]) || (userFlipArray[0] === winningArray[2]) || (userFlipArray[0] === winningArray[3])) && ((userFlipArray[1] === winningArray[0]) || (userFlipArray[1] === winningArray[1]) || (userFlipArray[1] === winningArray[2]) || (userFlipArray[1] === winningArray[3])) && ((userFlipArray[2] === winningArray[0]) || (userFlipArray[2] === winningArray[1]) || (userFlipArray[2] === winningArray[2]) || (userFlipArray[2] === winningArray[3])) && ((userFlipArray[3] === winningArray[0]) || (userFlipArray[3] === winningArray[1]) || (userFlipArray[3] === winningArray[2]) || (userFlipArray[3] === winningArray[3]))) {
-        return true
-    } else { return false
-}}
+let compareArrays = function(array1, array2) {
+    for (let i=0; i<array2.length; i++) {
+        if (array1.includes(array2[i])) {
+            return true
+        } else {
+            return false
+}}}
 
 let gainOnePoint = function() {
     document.querySelector('.score').innerText = points += 1;  
@@ -76,9 +78,11 @@ let lose = function() {
 }
 
 let winAlert = function() {
-    if (document.querySelector('.score').innerText === 2) { alert('YOU WON LEVEL 1!')
+    if (document.querySelector('.score').innerText == 3) { let levelTwoQuery = window.confirm('YOU WON LEVEL 1! Move to Level 2?')
+    if (levelTwoQuery === true) {
+        playLevelTwo()
+    }
 }}
-winAlert()
 
 let userTileFlip = function() {
     for (let i=0; i<tileArray.length; i++) {
@@ -87,11 +91,11 @@ let userTileFlip = function() {
     tileArray[i].onclick = function() {
         userFlipArray.push(tileArray[i])
         if (userFlipArray.length === 4) {
-            if (compareArrays() === true) {
+            if (compareArrays(userFlipArray, winningArray) === true) {
                 gainOnePoint()
             } else { lose() }
+            winAlert()
 }}}}
-
 
 flipFourRandomTiles()
 userTileFlip()
