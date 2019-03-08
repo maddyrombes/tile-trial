@@ -1,49 +1,53 @@
 body {
-    background-color: #303030;
+    background-color: #2F4858;
     text-align: center;
 }
 
 h1 {
     color: #FF5050;
     text-align: center;
-    font-family: 'Titan One', cursive;
+    font-family: 'Titan One';
     font-size: 70px;
     letter-spacing: 15px;
+    margin-top: 70px;
 }
 
 #instructions-heading {
-    font-size: 30px;
+    font-size: 35px;
 }
 
 h2 {
-    color: #FF5050;
+    color: #9BDE7E;
     text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    margin: 40px;
-
+    font-family: 'Titan One';
+    margin: 90px;
+    letter-spacing: 2px;
+    line-height: 30px;
+    font-size: 23px;
 }
 
 p {
     color: #FF5050;
     text-align: center;
-    font-family: 'Titan One', cursive;
+    font-family: 'Titan One';
     font-size: 30px;
     display: inline;
     letter-spacing: 2px;
 }
 
-button {
-    color: #FF5050;
-    text-align: center;
-    font-family: 'Titan One', cursive;
-    font-size: 25px;
-    letter-spacing: 2px;
-    background-color: #303030;
-    border: none;
+#score {
+    margin-top: -10px;
+    margin-bottom: -25px;
 }
 
 #landing-page-btn {
-    font-size: 60px;
+    font-size: 100px;
+    color: #FF5050;
+    text-align: center;
+    font-family: 'Titan One';
+    letter-spacing: 2px;
+    background-color: #2F4858;
+    border: none;
 }
 
 .tile-container {
@@ -51,15 +55,15 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 410px;
+    width: 500px;
     margin: auto;
     margin-top: 40px;
 }
 
 .tile {
-    width: 100px;
-    height: 100px;
-    background-color: #f4bc42;
+    width: 80px;
+    height: 80px;
+    background-color: #A95097;
     margin: 1px;
 }
 
@@ -68,26 +72,6 @@ button {
     animation-duration: .2s;
 }
 
-.level-1, .level-2, .level-3 {
-    margin: 22px;
-}
-
-.footer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-decoration: underline;
-    text-decoration-color: #FF5050;
-}
-
-.level-2 {
-    opacity: 0.5;
-}
-
-.level-3 {
-    opacity: 0.5;
-}
 
 /* shake function courtesy w3schools: https://www.w3schools.com/howto/howto_css_shake_image.asp */
 @keyframes tile-vibrate {
