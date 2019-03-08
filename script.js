@@ -1,8 +1,7 @@
 const grid = document.querySelector('.tile-container')
-const score = document.querySelector('#score')
+let score = document.querySelector('#score')
 const landingPageBtn = document.querySelector('#landing-page-btn')
 const instructions = document.querySelector('h2')
-
 
 let landingPage = function() {
     score.style.display = 'none'
@@ -19,7 +18,7 @@ let userFlipArray = []
 let winningArrayEval = []
 let userFlipArrayEval = []
 
-let playLevelOne = function() {
+let playGame = function() {
 
     grid.style.display = 'flex'
     score.style.display = 'block'
@@ -35,18 +34,16 @@ let resetTiles = function() {
     flipTile()
     winningArray = []
     userFlipArray = []
+    userFlipArray = []
     userFlipArrayEval = []
+    newArr = []
     flipFiveRandomTiles()
     userTileFlip()
 }
 
 let playGame = function() {
-    document.querySelector('.score').innerText = 0
-    flipTile()
-    winningArray = []
-    userFlipArray = []
-    flipFiveRandomTiles()
-    userTileFlip()
+    document.querySelector('.score').innerHTML = points = 0
+    resetTiles()
 }
 
 let randomTilesTimeout = function() {
@@ -57,7 +54,7 @@ let randomTilesTimeout = function() {
     setTimeout(() => {
         for (let i=0; i<winningArray.length; i++) {
             winningArray[i].style.backgroundColor = '#A95097'
-        }}, 1750)
+        }}, 1700)
     }
 
 let randomize = function() {
@@ -68,20 +65,16 @@ for (let i=0; i<5; i++) {
     tileArray.splice(index, 1)}
 }
 
-
 let flipFiveRandomTiles = function() {
     randomTilesTimeout()
     randomize()
-    tileArray.push(winningArray[0])
-    tileArray.push(winningArray[1])
-    tileArray.push(winningArray[2])
-    tileArray.push(winningArray[3])
-    tileArray.push(winningArray[4])
+    for (let i=0; i<winningArray.length; i++) {
+        tileArray.push(winningArray[i])
+    }
 }
 
-let newArr = []
-
 let compareArrays = function(array1, array2) {
+    let newArr = []
     for (let i=0; i<array2.length; i++) {
         if (array1.includes(array2[i])) {
             newArr.push(true)
@@ -95,38 +88,38 @@ let compareArrays = function(array1, array2) {
 }
 
 let gainOnePoint = function() {
-    document.querySelector('.score').innerText = points += 1;  
+    document.querySelector('.score').innerHTML = points += 1;  
     setTimeout(() => {
         resetTiles()
     }, 500)
 }
 
-let lose = function() {
+let winAlert = function() {
     setTimeout(() => {
-        let playAgain = window.confirm('Rats, you lost. Want to try again?')
-        if (playAgain === true) {
-        playGame()}
+        let winPlayAgain = window.confirm('YOU WON THE GAME! Want to play again?')
+        if (winPlayAgain === true) {
+            document.querySelector('.score').innerHTML = points = 0
+            playGame()}
     }, 250)
 }
 
-let winAlert = function() {
-    if (document.querySelector('.score').innerText == 3) { let playAgainQuery = window.confirm('YOU WON THE GAME! Want to play again?')
-    if (playAgainQuery === true) {
-        playGame()
-    }
-}}
-
-
+let lose = function() {
+    setTimeout(() => {
+        document.querySelector('.score').innerHTML = points = 0;
+        let playAgain = window.confirm('Rats, you lost. Want to try again?')
+        if (playAgain === true) {
+            document.querySelector('.score').innerHTML = points = 0
+            playGame()}
+    }, 250)
+}
 
 let userTileFlip = function() {
     for (let i=0; i<tileArray.length; i++) {
-        tileArray[i].addEventListener('click', function() {event.target.style.backgroundColor = '#3C537C'
+        tileArray[i].addEventListener('click', function() {
+            event.target.style.backgroundColor = '#3C537C'
     })
     tileArray[i].onclick = function() {
         userFlipArray.push(tileArray[i])
-
-
-
 
         if (userFlipArray.length === 5) {
             let userId1 = userFlipArray[0].getAttribute('id')
@@ -139,31 +132,28 @@ let userTileFlip = function() {
             userFlipArrayEval.push(userId3)
             userFlipArrayEval.push(userId4)
             userFlipArrayEval.push(userId5)
-            console.log(userFlipArrayEval)
-            console.log(winningArrayEval)
+            let winId1 = winningArray[0].getAttribute('id')
+            let winId2 = winningArray[1].getAttribute('id')
+            let winId3 = winningArray[2].getAttribute('id')
+            let winId4 = winningArray[3].getAttribute('id')
+            let winId5 = winningArray[4].getAttribute('id')
+            winningArrayEval.push(winId1)
+            winningArrayEval.push(winId2)
+            winningArrayEval.push(winId3)
+            winningArrayEval.push(winId4)
+            winningArrayEval.push(winId5)
             setTimeout(() => { if (compareArrays(winningArrayEval, 
                 userFlipArrayEval) === true) {
                 gainOnePoint()
-                winAlert()
-            } else if (compareArrays(winningArrayEval, 
-                userFlipArrayEval) === false) { lose(); resetTiles()
+                if (document.querySelector('.score').innerHTML == 10) { 
+                    winAlert()};                
+                winningArrayEval = []
+            } else { lose(); winningArrayEval = []; 
+                document.querySelector('.score').innerHTML = points = 0
             }}, 500)
 }}}}
 
 flipFiveRandomTiles()
 userTileFlip()
-
-
-let winId1 = winningArray[0].getAttribute('id')
-let winId2 = winningArray[1].getAttribute('id')
-let winId3 = winningArray[2].getAttribute('id')
-let winId4 = winningArray[3].getAttribute('id')
-let winId5 = winningArray[4].getAttribute('id')
-
-winningArrayEval.push(winId1)
-winningArrayEval.push(winId2)
-winningArrayEval.push(winId3)
-winningArrayEval.push(winId4)
-winningArrayEval.push(winId5)
 
 }
