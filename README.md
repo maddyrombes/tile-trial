@@ -9,6 +9,8 @@ There are sixteen tiles on the board. When you start the game, five random tiles
 
 This game was built with JavaScript, HTML, and CSS.
 
+You can view my original wireframes <a href="tile-trial-wireframes">here.</a>
+
 In the future, I would like to include several levels that get harder each time.
 
 ### PLAY
